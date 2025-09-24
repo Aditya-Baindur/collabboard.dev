@@ -5,7 +5,11 @@ import Footer from '@/components/Home/Footer';
 import Hero from '@/components/Home/Intro';
 import Pricing from '@/components/Home/Pricing';
 import Testimonials from '@/components/Home/Testimonials';
-import WorkflowShowcase from '@/components/Home/WorkflowShowcase';
+import dynamic from 'next/dynamic';
+
+const WorkflowShowcase = dynamic(() => import('@/components/Home/WorkflowShowcase'), {
+  ssr: false,
+});
 
 export default function Home() {
   return (
