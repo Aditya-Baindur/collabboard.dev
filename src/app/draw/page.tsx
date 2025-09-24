@@ -9,7 +9,7 @@ const Excalidraw = dynamic(
 
 export default function DrawPage() {
   return (
-    <div className="h-[80vh]">
+    <div className="h-[80vh] w-full">
       <Excalidraw />
     </div>
   );
