@@ -3,7 +3,8 @@
 import dynamic from 'next/dynamic';
 import { useMemo, useState } from 'react';
 import type { ExcalidrawInitialDataState } from '@excalidraw/excalidraw/dist/types/excalidraw/types';
-import '@excalidraw/excalidraw/index.css';
+import '@excalidraw/excalidraw/dist/excalidraw.min.css';
+
 import { PenSquare, PlaySquare, Share2 } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
