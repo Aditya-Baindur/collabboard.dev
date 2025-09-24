@@ -9,7 +9,7 @@ const Excalidraw = dynamic(
 
 export default function DrawPage() {
   return (
-    <div className="h-[80vh] w-full">
+    <div className="h-screen w-full">
       <Excalidraw />
     </div>
   );
