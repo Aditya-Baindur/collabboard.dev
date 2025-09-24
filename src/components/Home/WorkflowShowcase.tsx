@@ -2,14 +2,14 @@
 
 import dynamic from 'next/dynamic';
 import { useMemo, useState } from 'react';
-import type { ExcalidrawInitialDataState } from '@excalidraw/excalidraw/dist/types/excalidraw/types';
-import '@excalidraw/excalidraw/dist/excalidraw.min.css';
-import { PenSquare, PlaySquare, Share2 } from 'lucide-react';
+import type { ExcalidrawInitialDataState } from '@excalidraw/excalidraw/types';
+import '@excalidraw/excalidraw/index.css';
 
+import { PenSquare, PlaySquare, Share2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Excalidraw = dynamic(async () => (await import('@excalidraw/excalidraw')).Excalidraw, {
-  ssr: false
+  ssr: false,
 });
 
 type WorkflowStep = {
@@ -50,7 +50,7 @@ const baseElement = (
   link: null,
   locked: false,
   index: 'a0',
-  ...overrides
+  ...overrides,
 });
 
 const textElement = (
@@ -92,7 +92,7 @@ const textElement = (
   originalText: 'Text',
   autoResize: true,
   lineHeight: 1.2 as unknown as number,
-  ...overrides
+  ...overrides,
 });
 
 const sticky = (
@@ -109,7 +109,7 @@ const sticky = (
       height: 150,
       backgroundColor: color,
       strokeColor: '#0f172a',
-      index: `a${seed}`
+      index: `a${seed}`,
     },
     seed
   ),
@@ -126,10 +126,10 @@ const sticky = (
       baseline: 20,
       lineHeight: 1.4 as unknown as number,
       fontSize: 18,
-      strokeColor: '#0f172a'
+      strokeColor: '#0f172a',
     },
     seed + 1
-  )
+  ),
 ];
 
 const boardFrame = (
@@ -144,7 +144,7 @@ const boardFrame = (
       strokeColor: '#0f172a',
       x: 40,
       y: 60,
-      ...overrides
+      ...overrides,
     },
     seed
   );
@@ -152,7 +152,8 @@ const boardFrame = (
 const scenes: WorkflowStep[] = [
   {
     title: 'Gather ideas in seconds',
-    description: 'Launch your favorite template and invite the team. Everyone can sketch simultaneously inside structured frames.',
+    description:
+      'Launch your favorite template and invite the team. Everyone can sketch simultaneously inside structured frames.',
     cta: 'Start with the ideation kit',
     icon: PenSquare,
     scene: {
@@ -160,20 +161,21 @@ const scenes: WorkflowStep[] = [
         boardFrame(1000),
         ...sticky(1010, { x: 100, y: 120 }, '#fef3c7', 'How might we onboard faster?'),
         ...sticky(1020, { x: 230, y: 180 }, '#bae6fd', 'Where do customers stumble?'),
-        ...sticky(1030, { x: 360, y: 120 }, '#ddd6fe', 'What delights existing fans?')
+        ...sticky(1030, { x: 360, y: 120 }, '#ddd6fe', 'What delights existing fans?'),
       ],
       appState: {
         gridSize: 20,
         viewBackgroundColor: '#f8fafc',
         currentItemStrokeColor: '#0f172a',
-        currentItemBackgroundColor: '#fef3c7'
+        currentItemBackgroundColor: '#fef3c7',
       },
-      files: {}
-    }
+      files: {},
+    },
   },
   {
     title: 'Cluster themes with magic grouping',
-    description: 'Highlight any region to smart-group duplicates, tag sentiment and add voting rounds without leaving the canvas.',
+    description:
+      'Highlight any region to smart-group duplicates, tag sentiment and add voting rounds without leaving the canvas.',
     cta: 'See clustering in action',
     icon: PlaySquare,
     scene: {
@@ -192,23 +194,24 @@ const scenes: WorkflowStep[] = [
             backgroundColor: 'transparent',
             strokeWidth: 3,
             strokeStyle: 'dashed',
-            index: 'a2100'
+            index: 'a2100',
           },
           2100
-        )
+        ),
       ],
       appState: {
         gridSize: 20,
         viewBackgroundColor: '#f8fafc',
         currentItemStrokeColor: '#22c55e',
-        currentItemBackgroundColor: '#fef9c3'
+        currentItemBackgroundColor: '#fef9c3',
       },
-      files: {}
-    }
+      files: {},
+    },
   },
   {
     title: 'Turn insight into action',
-    description: 'Convert selected stickies into action items and owners. Sync decisions with Jira, Notion or Linear instantly.',
+    description:
+      'Convert selected stickies into action items and owners. Sync decisions with Jira, Notion or Linear instantly.',
     cta: 'Automate follow-ups',
     icon: Share2,
     scene: {
@@ -222,7 +225,7 @@ const scenes: WorkflowStep[] = [
             height: 240,
             backgroundColor: '#ffffff',
             strokeColor: '#e2e8f0',
-            index: 'a3001'
+            index: 'a3001',
           },
           3001
         ),
@@ -234,35 +237,40 @@ const scenes: WorkflowStep[] = [
                 y: 150 + row * 70,
                 width: 120,
                 height: 50,
-                text: row === 0 ? ['Owner', 'Next step', 'Due'][column] : ['Jules', 'Draft welcome tour', 'Fri'][column],
-                originalText: row === 0 ? ['Owner', 'Next step', 'Due'][column] : ['Jules', 'Draft welcome tour', 'Fri'][column],
+                text:
+                  row === 0
+                    ? ['Owner', 'Next step', 'Due'][column]
+                    : ['Jules', 'Draft welcome tour', 'Fri'][column],
+                originalText:
+                  row === 0
+                    ? ['Owner', 'Next step', 'Due'][column]
+                    : ['Jules', 'Draft welcome tour', 'Fri'][column],
                 textAlign: column === 1 ? 'left' : 'center',
                 verticalAlign: 'top',
                 lineHeight: 1.4 as unknown as number,
                 fontSize: row === 0 ? 16 : 18,
-                strokeColor: row === 0 ? '#475569' : '#0f172a'
+                strokeColor: row === 0 ? '#475569' : '#0f172a',
               },
               3100 + row * 10 + column
             )
           )
-        )
+        ),
       ],
       appState: {
         gridSize: 20,
         viewBackgroundColor: '#f8fafc',
         currentItemStrokeColor: '#0f172a',
-        currentItemBackgroundColor: '#ffffff'
+        currentItemBackgroundColor: '#ffffff',
       },
-      files: {}
-    }
-  }
+      files: {},
+    },
+  },
 ];
 
 const steps = scenes satisfies WorkflowStep[];
 
 export default function WorkflowShowcase() {
   const [activeIndex, setActiveIndex] = useState(0);
-
   const activeScene = useMemo(() => steps[activeIndex], [activeIndex]);
 
   return (
@@ -276,7 +284,8 @@ export default function WorkflowShowcase() {
             Every frame tells the story of your workshop.
           </h2>
           <p className="text-lg text-slate-600">
-            Switch between the journey stages to preview live Excalidraw boards. Each step updates instantly, just like in a real session.
+            Switch between the journey stages to preview live Excalidraw boards. Each step updates
+            instantly, just like in a real session.
           </p>
 
           <div className="space-y-4">
@@ -328,8 +337,8 @@ export default function WorkflowShowcase() {
                     saveToActiveFile: false,
                     saveAsImage: false,
                     export: false,
-                    toggleTheme: false
-                  }
+                    toggleTheme: false,
+                  },
                 }}
               />
             </div>
