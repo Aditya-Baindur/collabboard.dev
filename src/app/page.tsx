@@ -3,6 +3,7 @@ import FAQ from '@/components/Home/FAQ';
 import FeatureHighlights from '@/components/Home/FeatureHighlights';
 import Footer from '@/components/Home/Footer';
 import Hero from '@/components/Home/Intro';
+import LibraryShowcase from '@/components/Home/LibraryShowcase';
 import Pricing from '@/components/Home/Pricing';
 import Testimonials from '@/components/Home/Testimonials';
 
@@ -11,6 +12,7 @@ export default function Home() {
     <div className="bg-white text-slate-900">
       <Hero />
       <FeatureHighlights />
+      <LibraryShowcase />
       <Testimonials />
       <Pricing />
       <FAQ />
