@@ -1,72 +1,57 @@
-import { BrainCircuit, Clock, Palette, Wand2 } from 'lucide-react';
-
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { LayoutGrid, MessageSquareQuote, Palette, TimerReset } from 'lucide-react';
 
 const features = [
   {
-    title: 'Facilitator playbooks',
-    description:
-      'Launch with timeboxed prompts, checklists and talking points that keep every workshop on track from welcome to retro.',
-    icon: Wand2,
-    accent: 'from-emerald-200/80 via-emerald-100 to-white'
+    title: 'Calm, guided canvases',
+    description: 'Beautiful Excalidraw frames with timers, agendas and prompts built in — ready to duplicate for every ritual.',
+    icon: LayoutGrid
   },
   {
-    title: 'Real-time rituals',
-    description:
-      'Timers, polls and dot voting live inside each frame so you never leave the flow or lose momentum again.',
-    icon: Clock,
-    accent: 'from-sky-200/80 via-sky-100 to-white'
+    title: 'Facilitation superpowers',
+    description: 'Dot voting, focus mode and breakout spaces run smoothly without leaving the board or breaking the flow.',
+    icon: TimerReset
   },
   {
-    title: 'Branded visuals in seconds',
-    description:
-      'Apply your design system with saved color palettes, typography rules and reusable Excalidraw components.',
-    icon: Palette,
-    accent: 'from-fuchsia-200/80 via-fuchsia-100 to-white'
+    title: 'Brand-native visuals',
+    description: 'Lock in colors, typography and reusable libraries so every workshop looks like your team — not a generic template.',
+    icon: Palette
   },
   {
-    title: 'AI co-facilitator',
-    description:
-      'Summarize whiteboards into action plans, highlight patterns and suggest the next activity using your voice or chat.',
-    icon: BrainCircuit,
-    accent: 'from-amber-200/80 via-amber-100 to-white'
+    title: 'AI follow-ups that land',
+    description: 'Summaries, actions and highlights ship to Slack, Notion or Jira moments after everyone says goodbye.',
+    icon: MessageSquareQuote
   }
 ];
 
 export default function FeatureHighlights() {
   return (
-    <section id="features" className="relative -mt-24 bg-slate-50 pb-24 pt-32">
-      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-slate-900 via-slate-900/80 to-transparent" aria-hidden />
-      <div className="relative mx-auto flex max-w-6xl flex-col gap-12 px-6 lg:px-12">
-        <div className="max-w-3xl">
-          <p className="inline-flex items-center rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-emerald-700">
-            Why teams love colabboard
+    <section id="features" className="bg-white py-24">
+      <div className="mx-auto flex max-w-6xl flex-col gap-14 px-6 lg:flex-row lg:items-start lg:gap-20 lg:px-12">
+        <div className="max-w-xl space-y-6">
+          <p className="inline-flex items-center rounded-full bg-slate-900/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-slate-600">
+            Built for facilitators
           </p>
-          <h2 className="mt-6 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
-            Build momentum from kickoff to follow-through with the toolkit built for modern facilitators.
+          <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+            Everything you need to guide brilliant collaboration, without the chaos.
           </h2>
-          <p className="mt-4 text-lg text-slate-600">
-            Every interaction is co-created inside beautiful Excalidraw frames, structured into journeys that keep your team in sync
-            and energized.
+          <p className="text-lg text-slate-600">
+            colabboard layers structure, presence and thoughtful automation onto the Excalidraw canvas so your team can stay focused on outcomes.
           </p>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2">
+        <div className="grid flex-1 gap-6 sm:grid-cols-2">
           {features.map((feature) => (
-            <Card key={feature.title} className="relative overflow-hidden">
-              <div className={`absolute inset-x-0 top-0 h-1 w-full bg-gradient-to-r ${feature.accent}`} aria-hidden />
-              <CardHeader className="min-h-[160px]">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-900/5 text-slate-900">
-                  <feature.icon className="h-6 w-6" />
-                </div>
-                <CardTitle className="text-2xl font-semibold text-slate-900">{feature.title}</CardTitle>
-                <CardDescription className="text-base text-slate-600">{feature.description}</CardDescription>
-              </CardHeader>
-              <CardContent className="flex items-center justify-between text-sm text-slate-500">
-                <span>Designed for hybrid teams</span>
-                <span className="font-medium text-emerald-600">Learn more →</span>
-              </CardContent>
-            </Card>
+            <div
+              key={feature.title}
+              className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_45px_90px_-70px_rgba(15,23,42,0.6)] transition hover:-translate-y-1"
+            >
+              <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-gradient-to-br from-slate-100 via-white to-transparent" aria-hidden />
+              <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-900/5 text-slate-700">
+                <feature.icon className="h-6 w-6" />
+              </div>
+              <h3 className="text-xl font-semibold text-slate-900">{feature.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-slate-500">{feature.description}</p>
+            </div>
           ))}
         </div>
       </div>
