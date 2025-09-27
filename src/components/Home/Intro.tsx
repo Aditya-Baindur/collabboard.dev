@@ -1,168 +1,181 @@
-'use client';
-
-import { useState } from 'react';
-import { ArrowRight, LineChart, Sparkles, Users } from 'lucide-react';
+import type { CSSProperties } from 'react';
+import { ArrowRight, PlayCircle, Sparkles, Wand2 } from 'lucide-react';
 import Link from 'next/link';
 
+import { BrandLogo } from '@/components/BrandLogo';
 import { Button } from '@/components/ui/button';
 
-const floatingNotes = [
+const navigation = [
+  { label: 'Features', href: '#features' },
+  { label: 'Library', href: '#library' },
+  { label: 'Pricing', href: '#pricing' },
+  { label: 'FAQ', href: '#faq' }
+];
+
+const highlights = [
+  'Live cursors & synced canvases',
+  'Guided rituals that feel human',
+  'AI notes delivered to your tools'
+];
+
+type HeroArtifact = {
+  title: string;
+  subtitle: string;
+  gradient: string;
+  accent: string;
+  style: CSSProperties;
+  rotation: string;
+};
+
+const heroArtifacts: HeroArtifact[] = [
   {
-    title: 'Sprint Retro',
-    body: 'Dot vote, timers & breakout tasks in one board.',
-    top: '12%',
-    left: '8%',
-    rotation: '-6deg',
-    color: 'from-amber-200 via-amber-100 to-white'
+    title: 'Sprint Ritual',
+    subtitle: '04: Time to ideate',
+    gradient: 'from-sky-100 via-white to-white',
+    accent: 'bg-sky-500/10 text-sky-600',
+    style: { top: '12%', right: '5%' },
+    rotation: '-3deg'
   },
   {
-    title: 'Workshop Agenda',
-    body: 'Frame templates keep facilitators on track.',
-    top: '58%',
-    left: '18%',
-    rotation: '8deg',
-    color: 'from-sky-200 via-white to-sky-50'
-  },
-  {
-    title: 'Feedback Wall',
-    body: 'Comment threads stay attached to every idea.',
-    top: '22%',
-    left: '60%',
-    rotation: '3deg',
-    color: 'from-violet-200 via-white to-violet-50'
+    title: 'Research Playback',
+    subtitle: 'AI-suggested clusters',
+    gradient: 'from-emerald-100 via-white to-white',
+    accent: 'bg-emerald-500/10 text-emerald-600',
+    style: { bottom: '8%', left: '6%' },
+    rotation: '4deg'
   }
 ];
 
 export default function Hero() {
-  const [showCursors, setShowCursors] = useState(true);
-
   return (
-    <section className="relative isolate overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#1d4ed850,transparent_60%)]" aria-hidden />
-      <div className="absolute inset-0 opacity-30 mix-blend-screen">
-        <div className="absolute -top-24 left-1/3 h-72 w-72 rounded-full bg-emerald-400 blur-[140px]" />
-        <div className="absolute top-48 right-1/4 h-72 w-72 rounded-full bg-indigo-500 blur-[140px]" />
-      </div>
+    <section className="relative overflow-hidden bg-white">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(79,155,255,0.12),_transparent_55%)]" aria-hidden />
+      <div className="absolute -right-32 top-[-240px] h-[520px] w-[520px] rounded-full bg-gradient-to-br from-sky-100 via-white to-transparent blur-3xl" aria-hidden />
+      <div className="absolute -left-40 bottom-[-280px] h-[520px] w-[520px] rounded-full bg-gradient-to-br from-emerald-100 via-white to-transparent blur-3xl" aria-hidden />
 
-      <header className="relative z-20 mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-8 lg:px-12">
-        <div className="flex items-center gap-3 text-sm text-slate-300">
-          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 ring-1 ring-white/20">
-            <Sparkles className="h-4 w-4" />
-          </span>
-          <span className="font-medium tracking-wide">colabboard</span>
-        </div>
-        <nav className="hidden items-center gap-10 text-sm text-slate-200 md:flex">
-          {['Features', 'Workflow', 'Pricing', 'FAQ'].map((item) => (
-            <Link key={item} href={`#${item.toLowerCase()}`} className="transition hover:text-white">
-              {item}
+      <header className="relative mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-8 lg:px-12">
+        <Link href="/" className="flex items-center gap-3 text-sm font-medium text-slate-600">
+          <BrandLogo withWordmark />
+        </Link>
+        <nav className="hidden items-center gap-8 text-sm text-slate-500 md:flex">
+          {navigation.map((item) => (
+            <Link key={item.label} href={item.href} className="transition hover:text-slate-900">
+              {item.label}
             </Link>
           ))}
         </nav>
-        <div className="hidden gap-3 md:flex">
-          <Button variant="outline" className="border-white/20 bg-white/10 text-white hover:bg-white/20">
+        <div className="hidden items-center gap-3 md:flex">
+          <Button variant="outline" className="border-slate-200 bg-white text-slate-700 hover:bg-slate-50">
             Sign in
           </Button>
-          <Button className="bg-white text-slate-900 shadow-lg shadow-emerald-500/30 hover:bg-emerald-300">
+          <Button className="bg-slate-900 text-white shadow-[0_20px_45px_-20px_rgba(15,23,42,0.55)] hover:bg-slate-800">
             Join the beta
           </Button>
         </div>
       </header>
 
-      <div className="relative z-20 mx-auto flex max-w-6xl flex-col gap-16 px-6 pb-24 pt-6 lg:flex-row lg:items-center lg:gap-24 lg:px-12">
-        <div className="flex-1">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.3em] text-emerald-200">
-            <Users className="h-3.5 w-3.5" />
-            Real-time product workshops
+      <div className="relative mx-auto grid max-w-6xl gap-16 px-6 pb-24 pt-6 lg:grid-cols-[1.1fr,0.9fr] lg:items-center lg:gap-24 lg:px-12">
+        <div className="space-y-10">
+          <div className="inline-flex items-center gap-2 rounded-full bg-slate-900/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-600">
+            <Sparkles className="h-3.5 w-3.5 text-slate-400" />
+            Modern facilitation OS
           </div>
-          <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
-            Visual collaboration designed for facilitators who move fast.
-          </h1>
-          <p className="mt-6 max-w-xl text-lg text-slate-300">
-            Host guided workshops, capture ideas in beautiful Excalidraw frames, and turn conversations into structured plans your
-            team can execute instantly.
-          </p>
+          <div className="space-y-6">
+            <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-[54px]">
+              Bring every whiteboard ritual into one calm, elegant workspace.
+            </h1>
+            <p className="max-w-xl text-lg text-slate-600">
+              colabboard keeps your workshops flowing — from structured Excalidraw canvases to AI summaries that land in your tools moments after you wrap.
+            </p>
+          </div>
 
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <Button className="group flex items-center gap-2 bg-emerald-400 text-slate-900 shadow-lg shadow-emerald-500/40 hover:bg-emerald-300">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+            <Button className="group flex items-center gap-2 bg-slate-900 text-white shadow-[0_30px_90px_-45px_rgba(15,23,42,0.8)] hover:bg-slate-800">
               Start for free
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
-            <button
-              onClick={() => setShowCursors((prev) => !prev)}
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-3 text-sm font-medium text-slate-200 transition hover:border-white hover:text-white"
+            <Button
+              variant="outline"
+              className="group inline-flex items-center gap-2 border-slate-200 bg-white text-slate-700 hover:bg-slate-50"
             >
-              <LineChart className="h-4 w-4" />
-              {showCursors ? 'Pause live cursors' : 'Preview live cursors'}
-            </button>
+              <PlayCircle className="h-4 w-4 text-slate-500 transition group-hover:text-slate-700" />
+              Watch 90s demo
+            </Button>
           </div>
 
-          <dl className="mt-10 grid gap-6 text-sm sm:grid-cols-3">
-            <div>
-              <dt className="text-slate-400">Facilitators onboarded</dt>
-              <dd className="mt-1 text-2xl font-semibold text-white">12k+</dd>
-            </div>
-            <div>
-              <dt className="text-slate-400">Workshop templates</dt>
-              <dd className="mt-1 text-2xl font-semibold text-white">84</dd>
-            </div>
-            <div>
-              <dt className="text-slate-400">Average session rating</dt>
-              <dd className="mt-1 text-2xl font-semibold text-white">4.9/5</dd>
-            </div>
-          </dl>
+          <ul className="grid gap-3 text-sm text-slate-500 sm:grid-cols-2">
+            {highlights.map((item) => (
+              <li key={item} className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3">
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-slate-900/5 text-slate-700">
+                  <Wand2 className="h-3.5 w-3.5" />
+                </span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
         </div>
 
-        <div className="relative flex flex-1 justify-center lg:justify-end">
-          <div className="relative w-full max-w-xl overflow-hidden rounded-[3rem] border border-white/10 bg-white/5 p-8 shadow-[0_40px_120px_-40px_rgba(16,185,129,0.45)] backdrop-blur">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-white/10 bg-slate-900/80">
-              <div className="absolute inset-0 bg-[linear-gradient(120deg,#1f2937_0%,#111827_100%)]" />
-              <div className="absolute inset-0 opacity-50">
-                <div className="h-full w-full bg-[radial-gradient(circle_at_30%_20%,rgba(45,212,191,0.4),transparent_55%)]" />
-              </div>
-
-              <div className="relative h-full w-full">
-                {floatingNotes.map((note) => (
-                  <div
-                    key={note.title}
-                    className="absolute w-52 max-w-full rounded-2xl border border-white/10 bg-gradient-to-br p-4 text-left text-sm text-slate-900 shadow-lg"
-                    style={{ top: note.top, left: note.left, rotate: note.rotation }}
-                  >
-                    <div className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">{note.title}</div>
-                    <p className="mt-2 text-slate-700">{note.body}</p>
-                  </div>
-                ))}
-
-                {showCursors && (
-                  <>
-                    <span className="absolute left-[28%] top-[38%] flex items-center gap-2 text-xs font-medium text-emerald-200">
-                      <span className="flex h-2.5 w-2.5 animate-ping rounded-full bg-emerald-400" />
-                      Anne editing frame
-                    </span>
-                    <span className="absolute right-[20%] top-[55%] flex items-center gap-2 text-xs font-medium text-sky-200">
-                      <span className="flex h-2.5 w-2.5 animate-ping rounded-full bg-sky-400" />
-                      Miguel sketching
-                    </span>
-                  </>
-                )}
-              </div>
-            </div>
-            <div className="mt-6 flex items-center justify-between text-sm text-slate-300">
-              <div className="flex items-center gap-3">
-                <div className="flex -space-x-3">
-                  {[0, 1, 2, 3].map((item) => (
-                    <div
-                      key={item}
-                      className="h-9 w-9 rounded-full border-2 border-slate-900 bg-white/90 backdrop-blur"
-                      style={{
-                        backgroundImage: `linear-gradient(135deg, rgba(16,185,129,${0.6 - item * 0.1}), rgba(59,130,246,${0.5 - item * 0.1}))`
-                      }}
-                    />
-                  ))}
+        <div className="relative mx-auto w-full max-w-xl">
+          <div className="relative overflow-hidden rounded-[32px] border border-slate-200/80 bg-white p-8 shadow-[0_45px_120px_-60px_rgba(15,23,42,0.35)]">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-slate-100 bg-gradient-to-br from-white via-slate-50 to-slate-100">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(79,155,255,0.25),_transparent_60%)]" aria-hidden />
+              <div className="absolute inset-x-10 top-8 rounded-2xl border border-white/60 bg-white/90 p-6 shadow-[0_25px_60px_-45px_rgba(79,155,255,0.6)] backdrop-blur">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-medium uppercase tracking-[0.26em] text-slate-500">Workshop canvas</span>
+                  <span className="text-xs font-semibold text-emerald-500">Live</span>
                 </div>
-                <span className="text-xs text-slate-400">Live collaborators</span>
+                <div className="mt-4 grid gap-3 text-sm text-slate-600">
+                  <div className="rounded-2xl border border-slate-200/80 bg-white/90 p-3 shadow-sm">
+                    <div className="flex items-center justify-between text-xs text-slate-400">
+                      <span>Frame 01</span>
+                      <span>02:30 timer</span>
+                    </div>
+                    <p className="mt-2 text-base font-semibold text-slate-800">Ideation prompts</p>
+                    <p className="text-sm text-slate-500">“Where can we remove friction for new teams?”</p>
+                  </div>
+                  <div className="rounded-2xl border border-slate-200/80 bg-white/90 p-3 shadow-sm">
+                    <div className="flex items-center gap-3">
+                      <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-emerald-100 text-emerald-600">EA</span>
+                      <div className="text-sm">
+                        <div className="font-semibold text-slate-700">Eva added 4 stickies</div>
+                        <div className="text-xs text-slate-400">“Unclear onboarding emails” highlighted</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <span className="text-xs text-slate-400">Auto-saved 2s ago</span>
+
+              {heroArtifacts.map((artifact) => (
+                <div
+                  key={artifact.title}
+                  className={`absolute w-48 max-w-[70%] rounded-3xl border border-slate-100 bg-gradient-to-br ${artifact.gradient} p-5 text-sm text-slate-700 shadow-[0_20px_60px_-45px_rgba(15,23,42,0.35)]`}
+                  style={{
+                    rotate: artifact.rotation,
+                    ...artifact.style
+                  }}
+                >
+                  <span className={`inline-flex items-center rounded-full px-3 py-1 text-[11px] font-medium ${artifact.accent}`}>
+                    {artifact.subtitle}
+                  </span>
+                  <p className="mt-3 text-base font-semibold text-slate-800">{artifact.title}</p>
+                  <p className="text-xs leading-relaxed text-slate-500">Auto-organised talking points and voting queues.</p>
+                </div>
+              ))}
             </div>
+          </div>
+
+          <div className="absolute -bottom-8 left-1/2 flex w-max -translate-x-1/2 items-center gap-4 rounded-full border border-slate-200 bg-white px-5 py-3 text-xs font-medium text-slate-500 shadow-[0_25px_70px_-60px_rgba(15,23,42,0.4)]">
+            <div className="flex -space-x-3">
+              {[0, 1, 2, 3].map((i) => (
+                <span
+                  key={i}
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white bg-gradient-to-br from-slate-100 via-white to-slate-100 text-[11px] font-semibold text-slate-600 shadow-sm"
+                >
+                  {['AK', 'JM', 'LS', 'EV'][i]}
+                </span>
+              ))}
+            </div>
+            <span className="text-xs text-slate-400">Teams collaborating now</span>
           </div>
         </div>
       </div>
