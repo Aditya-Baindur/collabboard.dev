@@ -19,32 +19,29 @@ export default function CTA() {
   };
 
   return (
-    <section className="relative isolate overflow-hidden bg-gradient-to-br from-emerald-500 via-emerald-400 to-sky-400 py-24 text-white">
-      <div className="absolute inset-0 opacity-40">
-        <div className="absolute -left-16 top-12 h-48 w-48 rounded-full bg-white/30 blur-3xl" />
-        <div className="absolute bottom-0 right-10 h-64 w-64 rounded-full bg-sky-200/60 blur-3xl" />
-      </div>
+    <section className="relative overflow-hidden bg-white py-24">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(79,155,255,0.12),_transparent_60%)]" aria-hidden />
       <div className="relative mx-auto flex max-w-5xl flex-col items-center gap-8 px-6 text-center lg:px-12">
-        <span className="inline-flex items-center gap-2 rounded-full bg-white/20 px-4 py-2 text-xs uppercase tracking-[0.3em] text-white">
-          <Sparkles className="h-3.5 w-3.5" />
+        <span className="inline-flex items-center gap-2 rounded-full bg-slate-900/5 px-4 py-2 text-xs uppercase tracking-[0.3em] text-slate-600">
+          <Sparkles className="h-3.5 w-3.5 text-slate-400" />
           Start co-creating today
         </span>
-        <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+        <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
           Launch your next workshop in minutes.
         </h2>
-        <p className="max-w-2xl text-lg text-white/80">
+        <p className="max-w-2xl text-lg text-slate-600">
           Create a free workspace, invite collaborators and explore gorgeous Excalidraw frames built for product, design and research rituals.
         </p>
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-          <Button className="group flex items-center gap-2 bg-white text-emerald-600 hover:bg-white/90" onClick={onCelebrate}>
+          <Button className="group flex items-center gap-2 bg-slate-900 text-white shadow-[0_40px_120px_-70px_rgba(15,23,42,0.6)] hover:bg-slate-800" onClick={onCelebrate}>
             Claim your workspace
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Button>
-          <Button variant="outline" className="border-white/40 bg-transparent text-white hover:bg-white/10">
+          <Button variant="outline" className="border-slate-200 bg-white text-slate-700 hover:bg-slate-50">
             Talk to our team
           </Button>
         </div>
-        <p className="rounded-full bg-white/15 px-5 py-2 text-sm font-medium text-white/90 transition">
+        <p className="rounded-full border border-slate-200 bg-white px-5 py-2 text-sm font-medium text-slate-600 shadow-sm transition">
           {celebratoryMessages[messageIndex]}
         </p>
       </div>
