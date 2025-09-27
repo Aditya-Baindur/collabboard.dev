@@ -1,7 +1,5 @@
 import { Quote } from 'lucide-react';
 
-import { Card, CardContent } from '@/components/ui/card';
-
 const testimonials = [
   {
     quote:
@@ -25,35 +23,36 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="bg-slate-900 py-24 text-white">
+    <section className="bg-white py-24">
       <div className="mx-auto max-w-6xl px-6 lg:px-12">
         <div className="flex flex-col gap-10 sm:flex-row sm:items-end sm:justify-between">
-          <div className="max-w-3xl">
-            <p className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-emerald-200">
-              Trusted by facilitators everywhere
+          <div className="max-w-3xl space-y-4">
+            <p className="inline-flex items-center rounded-full bg-slate-900/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-slate-600">
+              Loved by modern teams
             </p>
-            <h2 className="mt-6 text-3xl font-semibold tracking-tight sm:text-4xl">
-              Crafted for teams that care about the experience and the outcome.
+            <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+              The facilitation layer that keeps remote, hybrid and in-person rituals energised.
             </h2>
           </div>
-          <div className="text-sm text-slate-300">
-            Loved by product, design and research teams at <span className="font-semibold text-white">Intercom</span>,{' '}
-            <span className="font-semibold text-white">Ramp</span> and <span className="font-semibold text-white">Figma</span>.
+          <div className="text-sm text-slate-500">
+            Trusted inside product orgs at <span className="font-semibold text-slate-700">Intercom</span>,{' '}
+            <span className="font-semibold text-slate-700">Ramp</span> and <span className="font-semibold text-slate-700">Figma</span>.
           </div>
         </div>
 
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           {testimonials.map((testimonial) => (
-            <Card key={testimonial.name} className="bg-white/10 text-left text-slate-100">
-              <CardContent className="flex h-full flex-col gap-6 p-8">
-                <Quote className="h-8 w-8 text-emerald-300" />
-                <p className="text-lg leading-relaxed text-slate-100/90">“{testimonial.quote}”</p>
-                <div className="mt-auto">
-                  <div className="text-base font-semibold text-white">{testimonial.name}</div>
-                  <div className="text-sm text-slate-300">{testimonial.role}</div>
-                </div>
-              </CardContent>
-            </Card>
+            <div
+              key={testimonial.name}
+              className="flex h-full flex-col gap-6 rounded-3xl border border-slate-200 bg-slate-50/80 p-8 shadow-[0_50px_110px_-80px_rgba(15,23,42,0.6)]"
+            >
+              <Quote className="h-8 w-8 text-slate-400" />
+              <p className="text-lg leading-relaxed text-slate-600">“{testimonial.quote}”</p>
+              <div className="mt-auto">
+                <div className="text-base font-semibold text-slate-900">{testimonial.name}</div>
+                <div className="text-sm text-slate-500">{testimonial.role}</div>
+              </div>
+            </div>
           ))}
         </div>
       </div>
