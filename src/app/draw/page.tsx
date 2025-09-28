@@ -3,7 +3,6 @@
 import { useMemo, useState } from 'react';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import type { ExcalidrawInitialDataState } from '@excalidraw/excalidraw/types/types';
 import {
   ArrowRight,
   Check,
@@ -51,6 +50,16 @@ type Participant = {
   name: string;
   role: string;
   color: string;
+};
+
+type InitialData = {
+  appState: {
+    theme: 'light' | 'dark';
+    currentItemStrokeColor: string;
+    currentItemBackgroundColor: string;
+    viewBackgroundColor: string;
+    gridModeEnabled: boolean;
+  };
 };
 
 const stages: Stage[] = [
@@ -219,7 +228,7 @@ export default function DrawPage() {
     return Math.round((completed / total) * 100);
   }, [activeStage, checklistProgress]);
 
-  const initialData = useMemo<ExcalidrawInitialDataState>(
+  const initialData = useMemo<InitialData>(
     () => ({
       appState: {
         theme: 'light',
