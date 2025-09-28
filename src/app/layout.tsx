@@ -13,7 +13,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${plusJakarta.variable} antialiased bg-white text-slate-900`}>{children}</body>
+      <body
+        className={`${plusJakarta.variable} antialiased bg-white text-slate-900 selection:bg-logo-mint`}
+      >
+        {children}
+      </body>
     </html>
   );
 }
