@@ -23,11 +23,11 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="bg-white py-24">
+    <section className="bg-gradient-to-b from-white via-[var(--color-company-bg)]/60 to-white py-24">
       <div className="mx-auto max-w-6xl px-6 lg:px-12">
         <div className="flex flex-col gap-10 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-3xl space-y-4">
-            <p className="inline-flex items-center rounded-full bg-slate-900/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-slate-600">
+            <p className="inline-flex items-center rounded-full bg-white/80 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-slate-600 shadow-sm">
               Loved by modern teams
             </p>
             <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
@@ -44,9 +44,9 @@ export default function Testimonials() {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.name}
-              className="flex h-full flex-col gap-6 rounded-3xl border border-slate-200 bg-slate-50/80 p-8 shadow-[0_50px_110px_-80px_rgba(15,23,42,0.6)]"
+              className="flex h-full flex-col gap-6 rounded-3xl border border-white/60 bg-white/90 p-8 shadow-[0_50px_110px_-80px_rgba(138,107,255,0.35)] backdrop-blur"
             >
-              <Quote className="h-8 w-8 text-slate-400" />
+              <Quote className="h-8 w-8 text-[var(--color-logo-purple)]" />
               <p className="text-lg leading-relaxed text-slate-600">“{testimonial.quote}”</p>
               <div className="mt-auto">
                 <div className="text-base font-semibold text-slate-900">{testimonial.name}</div>
