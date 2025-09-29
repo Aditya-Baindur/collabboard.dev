@@ -1,10 +1,10 @@
 import { type Metadata } from 'next';
 import { ClerkProvider } from '@clerk/nextjs';
-import Script from 'next/script';
 import { Analytics } from '@vercel/analytics/next';
 import { Toaster } from '@/components/ui/sonner';
 import { Plus_Jakarta_Sans } from 'next/font/google';
-import ClarityInitOnce from '@/components/clarity/clarityinit';
+
+import ClarityInitOnce from '@/components/clarity/ClarityInitOnce';
 
 import './globals.css';
 
