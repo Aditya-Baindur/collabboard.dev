@@ -25,7 +25,6 @@ export default function RootLayout({
         <body
           className={`${plusJakarta.variable} antialiased bg-white text-slate-900 selection:bg-logo-mint`}
         >
-          <ClarityInitOnce />
           {children}
           <CookieConsent />
           <Toaster richColors position="top-center" />
