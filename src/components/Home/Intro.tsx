@@ -78,7 +78,7 @@ export default function Hero() {
 
       <header className="relative mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-8 lg:px-12">
         <Link href="/" className="flex items-center gap-3 text-sm font-medium text-slate-600">
-          <BrandLogo withWordmark />
+          <BrandLogo />
         </Link>
         <nav className="hidden items-center gap-8 text-sm text-slate-500 md:flex">
           {navigation.map((item) => (

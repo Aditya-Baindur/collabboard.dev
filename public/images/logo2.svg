@@ -1,0 +1,55 @@
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <!-- Blue board -->
+  <g>
+    <rect x="20" y="24" width="150" height="112" rx="16" fill="#4F9BFF"/>
+    <!-- Grid lines -->
+    <g opacity="0.12" stroke="#000" stroke-width="1">
+      <path d="M40 24 V136"/>
+      <path d="M60 24 V136"/>
+      <path d="M80 24 V136"/>
+      <path d="M100 24 V136"/>
+      <path d="M120 24 V136"/>
+      <path d="M140 24 V136"/>
+      <path d="M160 24 V136"/>
+    </g>
+  </g>
+
+  <!-- Purple board -->
+  <g>
+    <rect x="140" y="54" width="150" height="112" rx="16" fill="#8A6BFF"/>
+    <!-- Grid lines -->
+    <g opacity="0.12" stroke="#000" stroke-width="1">
+      <path d="M160 54 V166"/>
+      <path d="M180 54 V166"/>
+      <path d="M200 54 V166"/>
+      <path d="M220 54 V166"/>
+      <path d="M240 54 V166"/>
+      <path d="M260 54 V166"/>
+    </g>
+  </g>
+
+  <!-- Green board (front) -->
+  <g>
+    <rect x="54" y="118" width="168" height="118" rx="18" fill="#60F6C3"/>
+    
+    <!-- Grid lines -->
+    <g opacity="0.15" stroke="#000" stroke-width="1">
+      <path d="M74 118 V236"/>
+      <path d="M94 118 V236"/>
+      <path d="M114 118 V236"/>
+      <path d="M134 118 V236"/>
+      <path d="M154 118 V236"/>
+      <path d="M174 118 V236"/>
+      <path d="M194 118 V236"/>
+      <path d="M214 118 V236"/>
+    </g>
+
+    <!-- Pencil moved lower & shifted left -->
+    <path d="M105 210 l20 -5 40 -40c3.5-3.5 3.5-9.2 0-12.7-3.5-3.5-9.2-3.5-12.7 0l-40 40 -7 20zM105 210 l12 -12"
+          fill="none"
+          stroke="#0B1324"
+          stroke-width="9"
+          stroke-linecap="round"
+          stroke-linejoin="round" />
+  </g>
+</svg>

@@ -15,7 +15,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-company-bg: #000000;
+  --color-company-bg: var(--color-amber-50);
   --color-logo-blue: #4f9bff;
   --color-logo-purple: #8a6bff;
   --color-logo-mint: #60f6c3;
