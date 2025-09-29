@@ -54,12 +54,16 @@ export default function EmailSignup() {
   };
 
   return (
-    <section className="flex w-full items-center bg-gradient-to-br from-[var(--color-logo-blue)] via-[var(--color-logo-purple)] to-[var(--color-logo-mint)] py-16 text-white">
+    <section
+      className="flex w-full items-center bg-gradient-to-br from-[var(--color-logo-blue)] via-[var(--color-logo-purple)] to-[var(--color-logo-mint)] py-16 text-white"
+      id="waitlist"
+    >
       <div className="mx-auto flex w-full max-w-2xl flex-col items-center gap-6 px-4 text-center">
         <BrandLogo className="h-12 w-auto drop-shadow-[0_18px_30px_rgba(12,74,110,0.35)]" />
 
         <p className="max-w-xl text-balance text-lg text-white/80">
-          Join the launch list to receive fresh workshop rituals, template drops and AI automation tips.
+          Join the launch list to receive fresh workshop rituals, template drops and AI automation
+          tips.
         </p>
 
         <form
