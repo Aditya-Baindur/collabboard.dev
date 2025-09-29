@@ -71,9 +71,9 @@ export default function CookieConsent() {
           exit={{ opacity: 0, y: 36 }}
           transition={{ duration: 0.22 }}
         >
-          <div className="relative rounded-lg border border-border bg-white p-4 shadow-lg dark:bg-zinc-900">
+          <div className="relative rounded-lg border border-border bg-white p-4 shadow-lg ">
             <button
-              className="absolute right-2 top-2 flex h-6 w-6 items-center justify-center rounded hover:bg-zinc-100 dark:hover:bg-zinc-800"
+              className="absolute right-2 top-2 flex h-6 w-6 items-center justify-center rounded hover:bg-zinc-100 "
               onClick={decline}
               aria-label="Close cookie consent"
             >

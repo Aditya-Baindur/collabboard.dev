@@ -3,8 +3,7 @@ import { ClerkProvider } from '@clerk/nextjs';
 import { Analytics } from '@vercel/analytics/next';
 import { Toaster } from '@/components/ui/sonner';
 import { Plus_Jakarta_Sans } from 'next/font/google';
-
-import ClarityInitOnce from '@/components/clarity/ClarityInitOnce';
+import CookieConsent from '@/components/clarity/Cookiesconcent';
 
 import './globals.css';
 
@@ -26,8 +25,9 @@ export default function RootLayout({
         <body
           className={`${plusJakarta.variable} antialiased bg-white text-slate-900 selection:bg-logo-mint`}
         >
-          {children}
           <ClarityInitOnce />
+          {children}
+          <CookieConsent />
           <Toaster richColors position="top-center" />
           <Analytics />
         </body>
