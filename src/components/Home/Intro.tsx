@@ -3,6 +3,8 @@ import type { CSSProperties } from 'react';
 import { ArrowRight, PlayCircle, Sparkles, Wand2, MoveUpRight, LoaderCircle } from 'lucide-react';
 import Link from 'next/link';
 
+import { SignInButton, SignUpButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
+
 import { BrandLogo } from '@/components/BrandLogo';
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
@@ -86,12 +88,17 @@ export default function Hero() {
           ))}
         </nav>
         <div className="hidden items-center gap-3 md:flex">
-          <Button
-            variant="outline"
-            className="border-slate-200 bg-white text-slate-700 hover:bg-slate-50"
-          >
-            Sign in
-          </Button>
+          <SignedOut>
+            <SignInButton />
+            <SignUpButton>
+              <button className="bg-[#6c47ff] text-ceramic-white rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 cursor-pointer">
+                Sign Up
+              </button>
+            </SignUpButton>
+          </SignedOut>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
           <Button className="bg-slate-900 text-white shadow-[0_20px_45px_-20px_rgba(15,23,42,0.55)] hover:bg-slate-800">
             Join the beta
           </Button>
