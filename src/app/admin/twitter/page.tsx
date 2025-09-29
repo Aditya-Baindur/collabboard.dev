@@ -1,10 +1,8 @@
-// app/tweet/page.tsx
-import TweetEmbed from '@/components/Home/Twitter/TweetEmbed';
-
-export default function TwitterCTA() {
+import { Tweet } from 'react-tweet'; // first import
+export default function Home() {
   return (
-    <main className="container mx-auto max-w-2xl px-4 py-12">
-      <TweetEmbed tweetId="1972495491666710839" />
+    <main className="flex min-h-screen-xl flex-col items-center justify-between p-24">
+      <Tweet id="1972495491666710839" />
     </main>
   );
 }

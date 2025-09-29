@@ -7,6 +7,7 @@ import Hero from '@/components/Home/Intro';
 import LibraryShowcase from '@/components/Home/LibraryShowcase';
 import Pricing from '@/components/Home/Pricing';
 import Testimonials from '@/components/Home/Testimonials';
+import About from '@/components/Home/About';
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <Testimonials />
       <Pricing />
       <FAQ />
+      <About />
       <CTA />
       <Footer />
     </div>
