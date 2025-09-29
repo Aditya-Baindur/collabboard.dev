@@ -72,13 +72,7 @@ const heroArtifacts: HeroArtifact[] = [
 
 export default function Hero() {
   const router = useRouter();
-  const [starting, setStarting] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-
-  const startUpSequence = (link: string) => {
-    setStarting(true);
-    router.push(link);
-  };
 
   const closeMenu = () => setMenuOpen(false);
 
@@ -234,14 +228,12 @@ export default function Hero() {
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
             <Button
               className="group flex items-center gap-2 bg-slate-900 text-white shadow-[0_30px_90px_-45px_rgba(15,23,42,0.8)] hover:bg-slate-800"
-              onClick={() => startUpSequence('/draw')}
+              onClick={() => {
+                document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' });
+              }}
             >
               Start for free
-              {starting ? (
-                <LoaderCircle className="h-5 w-5 animate-spin text-[var(--color-logo-mint)]" />
-              ) : (
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              )}
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
             <Button
               variant="outline"
