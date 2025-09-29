@@ -1,5 +1,6 @@
 import { type Metadata } from 'next';
 import { ClerkProvider } from '@clerk/nextjs';
+import Script from 'next/script';
 
 import { Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
@@ -25,6 +26,11 @@ export default function RootLayout({
         >
           {children}
           <Toaster richColors position="top-center" />
+          <Script
+            id="twitter-widgets"
+            src="https://platform.twitter.com/widgets.js"
+            strategy="afterInteractive"
+          />
         </body>
       </html>
     </ClerkProvider>
