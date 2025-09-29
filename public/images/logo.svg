@@ -1,0 +1,24 @@
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+  <!-- Blue board -->
+  <rect x="20" y="24" width="150" height="112" rx="16" fill="#4F9BFF"></rect>
+  <!-- Purple board -->
+  <rect x="120" y="38" width="150" height="112" rx="16" fill="#8A6BFF"></rect>
+  <!-- Green board (front) -->
+  <g>
+    <rect x="54" y="108" width="168" height="118" rx="18" fill="#60F6C3"></rect>
+    <!-- Subtle grid on the green board -->
+    <g opacity="0.18" stroke="#000" stroke-width="1">
+      <!-- vertical lines -->
+      <path d="M74 108 V226"></path>
+      <path d="M94 108 V226"></path>
+      <path d="M114 108 V226"></path>
+      <path d="M134 108 V226"></path>
+      <path d="M154 108 V226"></path>
+      <path d="M174 108 V226"></path>
+      <path d="M194 108 V226"></path>
+      <path d="M214 108 V226"></path>
+    </g>
+    <!-- Pencil mark -->
+    <path d="M95 206l16-4 61-61c3.5-3.5 3.5-9.2 0-12.7-3.5-3.5-9.2-3.5-12.7 0L98 189l-3 17zM95 206l10-10" fill="none" stroke="#0B1324" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"></path>
+  </g>
+</svg>

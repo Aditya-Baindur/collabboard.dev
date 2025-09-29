@@ -3,6 +3,7 @@ import { ClerkProvider } from '@clerk/nextjs';
 
 import { Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
+import { Toaster } from '@/components/ui/sonner';
 
 export const metadata: Metadata = {
   title: 'Colabboard',
@@ -23,6 +24,7 @@ export default function RootLayout({
           className={`${plusJakarta.variable} antialiased bg-white text-slate-900 selection:bg-logo-mint`}
         >
           {children}
+          <Toaster richColors position="top-center" />
         </body>
       </html>
     </ClerkProvider>
