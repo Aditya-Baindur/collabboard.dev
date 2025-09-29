@@ -5,12 +5,6 @@ import EmailTable from './email-table';
 export const dynamic = 'force-dynamic'; // always fetch fresh in dev
 // export const revalidate = 0; // alternative to force-dynamic
 
-type User = {
-  id: string;
-  email: string;
-  time: string; // ISO string
-};
-
 async function getUsers() {
   const base =
     process.env.NEXT_PUBLIC_SITE_URL || // define in .env for prod
