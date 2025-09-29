@@ -12,16 +12,15 @@ import {
   NotebookPen,
   Share2,
   Sparkles,
-  Users
+  Users,
 } from 'lucide-react';
 
 import { BrandLogo } from '@/components/BrandLogo';
 import { Button } from '@/components/ui/button';
 
-const Excalidraw = dynamic(
-  () => import('@excalidraw/excalidraw').then((mod) => mod.Excalidraw),
-  { ssr: false }
-);
+const Excalidraw = dynamic(() => import('@excalidraw/excalidraw').then((mod) => mod.Excalidraw), {
+  ssr: false,
+});
 
 type Stage = {
   id: string;
@@ -70,11 +69,11 @@ const stages: Stage[] = [
     description:
       'Warm the room, remind the team what momentum looks like, and capture intentions before you dive into the map.',
     checklist: [
-      'Clarify today\'s objective and success signals',
+      "Clarify today's objective and success signals",
       'Invite each squad to share a current friction',
-      'Pin priorities to the warm-up frame'
+      'Pin priorities to the warm-up frame',
     ],
-    tags: ['Group warm-up', 'Live note capture']
+    tags: ['Group warm-up', 'Live note capture'],
   },
   {
     id: 'friction',
@@ -85,9 +84,9 @@ const stages: Stage[] = [
     checklist: [
       'Timebox silent sticky pass (5 min)',
       'Cluster issues by customer journey stage',
-      'Highlight blockers with red tag marker'
+      'Highlight blockers with red tag marker',
     ],
-    tags: ['Silent ideation', 'Affinity clustering']
+    tags: ['Silent ideation', 'Affinity clustering'],
   },
   {
     id: 'decide',
@@ -98,9 +97,9 @@ const stages: Stage[] = [
     checklist: [
       'Run 2-dot vote with live cursors',
       'Ask owner to narrate the winning cluster',
-      'Capture decision + owner on the commitments card'
+      'Capture decision + owner on the commitments card',
     ],
-    tags: ['Live votes', 'Decision log']
+    tags: ['Live votes', 'Decision log'],
   },
   {
     id: 'next',
@@ -111,45 +110,45 @@ const stages: Stage[] = [
     checklist: [
       'Summarise top 3 insights with AI co-pilot',
       'Push action items to Linear + Notion',
-      'Schedule retro follow-up in calendar'
+      'Schedule retro follow-up in calendar',
     ],
-    tags: ['AI notes', 'Workflow handoff']
-  }
+    tags: ['AI notes', 'Workflow handoff'],
+  },
 ];
 
 const templates: Template[] = [
   {
     id: 'kickoff',
     name: 'Sprint Kickoff Ritual',
-    description: 'Structured intent, brainstorm, vote and commit frames in 45 minutes.'
+    description: 'Structured intent, brainstorm, vote and commit frames in 45 minutes.',
   },
   {
     id: 'research',
     name: 'Research Playback',
-    description: 'Review insights, surface patterns and record reactions with AI summaries.'
+    description: 'Review insights, surface patterns and record reactions with AI summaries.',
   },
   {
     id: 'calibration',
     name: 'Weekly Calibration',
-    description: '10-minute async canvas to pulse sentiment and unblock delivery.'
-  }
+    description: '10-minute async canvas to pulse sentiment and unblock delivery.',
+  },
 ];
 
 const summarySets: SummarySet[] = [
   {
     headline: 'Momentum is lost at onboarding hand-off',
     summary:
-      'The squad is confident in acquisition, but new teams churn at the configuration hand-off. AI grouped today\'s stickies into three breakpoints to fix next sprint.',
+      "The squad is confident in acquisition, but new teams churn at the configuration hand-off. AI grouped today's stickies into three breakpoints to fix next sprint.",
     insights: [
       'Top friction: "no live walkthrough" for new workspaces',
       'Two squads duplicated setup docs, signalling unclear ownership',
-      'Latency in billing approvals stalls enterprise pilots for 4-6 days'
+      'Latency in billing approvals stalls enterprise pilots for 4-6 days',
     ],
     followUps: [
       'Assign onboarding kit refresh to Growth Ops',
       'Draft shared "first week" checklist with Customer Success',
-      'Coordinate legal + billing SLA review before next retro'
-    ]
+      'Coordinate legal + billing SLA review before next retro',
+    ],
   },
   {
     headline: 'Experiment backlog outpaces delivery confidence',
@@ -157,14 +156,14 @@ const summarySets: SummarySet[] = [
       'Voting concentrated on ideas that reduce ambiguity. Patterns show the squad needs faster validation loops and clearer guardrails for testing.',
     insights: [
       'Discovery work is blocked by inconsistent research briefs',
-      'Design requests wait 3+ days because capacity isn\'t visible',
-      'Ops sees repeat questions about how to measure success'
+      "Design requests wait 3+ days because capacity isn't visible",
+      'Ops sees repeat questions about how to measure success',
     ],
     followUps: [
       'Spin up shared experiment tracker in Notion',
       'Book paired synthesis session with Research on Tuesday',
-      'Publish metric definitions as tooltips inside the ritual canvas'
-    ]
+      'Publish metric definitions as tooltips inside the ritual canvas',
+    ],
   },
   {
     headline: 'Team energy spikes around customer narratives',
@@ -173,21 +172,31 @@ const summarySets: SummarySet[] = [
     insights: [
       'Customer storytelling drove two immediate commitments',
       'Ops wants reusable storyboard frame for future rituals',
-      'Engineers requested async digest for teammates in APAC'
+      'Engineers requested async digest for teammates in APAC',
     ],
     followUps: [
       'Insert playback slot into recurring Monday ritual',
       'Auto-send digest clip to APAC engineering channel',
-      'Produce template narrative cards with visuals and metrics'
-    ]
-  }
+      'Produce template narrative cards with visuals and metrics',
+    ],
+  },
 ];
 
 const participants: Participant[] = [
   { initials: 'AK', name: 'Amelia Khan', role: 'Facilitator', color: 'bg-sky-100 text-sky-700' },
-  { initials: 'JM', name: 'Jesse Miller', role: 'Product', color: 'bg-emerald-100 text-emerald-700' },
+  {
+    initials: 'JM',
+    name: 'Jesse Miller',
+    role: 'Product',
+    color: 'bg-emerald-100 text-emerald-700',
+  },
   { initials: 'LS', name: 'Lina Soto', role: 'Design', color: 'bg-amber-100 text-amber-700' },
-  { initials: 'EV', name: 'Ethan Voss', role: 'Engineering', color: 'bg-violet-100 text-violet-700' }
+  {
+    initials: 'EV',
+    name: 'Ethan Voss',
+    role: 'Engineering',
+    color: 'bg-violet-100 text-violet-700',
+  },
 ];
 
 export default function DrawPage() {
@@ -207,14 +216,14 @@ export default function DrawPage() {
     const key = `${stageId}:${item}`;
     setChecklistProgress((prev) => ({
       ...prev,
-      [key]: !prev[key]
+      [key]: !prev[key],
     }));
   };
 
   const toggleFollowUp = (item: string) => {
     setActionedFollowUps((prev) => ({
       ...prev,
-      [item]: !prev[item]
+      [item]: !prev[item],
     }));
   };
 
@@ -224,7 +233,9 @@ export default function DrawPage() {
 
   const checklistCompletion = useMemo(() => {
     const total = activeStage.checklist.length;
-    const completed = activeStage.checklist.filter((item) => checklistProgress[`${activeStage.id}:${item}`]).length;
+    const completed = activeStage.checklist.filter(
+      (item) => checklistProgress[`${activeStage.id}:${item}`]
+    ).length;
     return Math.round((completed / total) * 100);
   }, [activeStage, checklistProgress]);
 
@@ -235,8 +246,8 @@ export default function DrawPage() {
         currentItemStrokeColor: '#0f172a',
         currentItemBackgroundColor: '#0f172a11',
         viewBackgroundColor: '#f8fafc',
-        gridModeEnabled: true
-      }
+        gridModeEnabled: true,
+      },
     }),
     []
   );
@@ -246,7 +257,7 @@ export default function DrawPage() {
       <header className="flex items-center justify-between border-b border-slate-200 bg-white px-6 py-4">
         <div className="flex items-center gap-4">
           <Link href="/" className="flex items-center gap-2 text-slate-600">
-            <BrandLogo className="h-9 w-auto" withWordmark />
+            <BrandLogo className="h-9 w-auto" />
           </Link>
           <div>
             <div className="flex items-center gap-3 text-sm font-medium text-slate-500">
@@ -255,7 +266,9 @@ export default function DrawPage() {
               </span>
               Product Sprint Session 08
             </div>
-            <p className="text-sm text-slate-400">Guided workspace for hybrid rituals with AI notes & handoffs.</p>
+            <p className="text-sm text-slate-400">
+              Guided workspace for hybrid rituals with AI notes & handoffs.
+            </p>
           </div>
         </div>
         <div className="flex items-center gap-3">
@@ -263,7 +276,10 @@ export default function DrawPage() {
             <Clock className="h-4 w-4 text-slate-400" />
             24:12 remaining
           </div>
-          <Button variant="outline" className="border-slate-200 bg-white text-slate-700 hover:bg-slate-50">
+          <Button
+            variant="outline"
+            className="border-slate-200 bg-white text-slate-700 hover:bg-slate-50"
+          >
             <Share2 className="mr-2 h-4 w-4" />
             Invite team
           </Button>
@@ -278,12 +294,16 @@ export default function DrawPage() {
         <aside className="flex w-72 flex-col border-r border-slate-200 bg-white">
           <div className="border-b border-slate-200 px-5 pb-5 pt-6">
             <h2 className="text-sm font-semibold text-slate-700">Ritual Flow</h2>
-            <p className="mt-1 text-xs text-slate-400">Guided steps with timers, prompts and auto-notes.</p>
+            <p className="mt-1 text-xs text-slate-400">
+              Guided steps with timers, prompts and auto-notes.
+            </p>
           </div>
           <nav className="flex-1 space-y-2 overflow-y-auto px-4 pb-6 pt-4">
             {stages.map((stage) => {
               const isActive = stage.id === activeStage.id;
-              const completedItems = stage.checklist.filter((item) => checklistProgress[`${stage.id}:${item}`]).length;
+              const completedItems = stage.checklist.filter(
+                (item) => checklistProgress[`${stage.id}:${item}`]
+              ).length;
               return (
                 <button
                   key={stage.id}
@@ -297,10 +317,18 @@ export default function DrawPage() {
                 >
                   <div className="flex items-center justify-between text-xs font-medium uppercase tracking-[0.28em]">
                     <span>{stage.duration}</span>
-                    <span>{completedItems}/{stage.checklist.length}</span>
+                    <span>
+                      {completedItems}/{stage.checklist.length}
+                    </span>
                   </div>
-                  <h3 className={`mt-3 text-base font-semibold ${isActive ? 'text-white' : 'text-slate-800'}`}>{stage.title}</h3>
-                  <p className={`mt-2 text-xs leading-relaxed ${isActive ? 'text-white/70' : 'text-slate-400'}`}>
+                  <h3
+                    className={`mt-3 text-base font-semibold ${isActive ? 'text-white' : 'text-slate-800'}`}
+                  >
+                    {stage.title}
+                  </h3>
+                  <p
+                    className={`mt-2 text-xs leading-relaxed ${isActive ? 'text-white/70' : 'text-slate-400'}`}
+                  >
                     {stage.description}
                   </p>
                   <div className="mt-3 flex flex-wrap gap-2">
@@ -346,8 +374,12 @@ export default function DrawPage() {
             <div>
               <div className="flex items-center justify-between gap-4">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-400">Current stage</p>
-                  <h2 className="mt-2 text-2xl font-semibold text-slate-900">{activeStage.title}</h2>
+                  <p className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-400">
+                    Current stage
+                  </p>
+                  <h2 className="mt-2 text-2xl font-semibold text-slate-900">
+                    {activeStage.title}
+                  </h2>
                 </div>
                 <div className="flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-medium text-slate-600">
                   <Sparkles className="h-4 w-4 text-slate-400" />
@@ -357,8 +389,7 @@ export default function DrawPage() {
               <p className="mt-4 max-w-xl text-sm text-slate-500">{activeStage.description}</p>
               <div className="mt-5 flex items-center gap-3">
                 <div className="flex h-10 items-center gap-2 rounded-full border border-slate-200 bg-white px-4 text-sm text-slate-500">
-                  <Users className="h-4 w-4 text-slate-400" />
-                  4 live collaborators
+                  <Users className="h-4 w-4 text-slate-400" />4 live collaborators
                 </div>
                 <div className="flex h-10 items-center gap-2 rounded-full border border-slate-200 bg-white px-4 text-sm text-slate-500">
                   <ListChecks className="h-4 w-4 text-slate-400" />
@@ -370,8 +401,12 @@ export default function DrawPage() {
               <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-[0.28em] text-slate-400">
                 <span>Checklist</span>
                 <span>
-                  {activeStage.checklist.filter((item) => checklistProgress[`${activeStage.id}:${item}`]).length}/
-                  {activeStage.checklist.length}
+                  {
+                    activeStage.checklist.filter(
+                      (item) => checklistProgress[`${activeStage.id}:${item}`]
+                    ).length
+                  }
+                  /{activeStage.checklist.length}
                 </span>
               </div>
               <ul className="mt-3 space-y-2">
@@ -395,7 +430,11 @@ export default function DrawPage() {
                               : 'border-slate-200 bg-slate-100 text-slate-500'
                           }`}
                         >
-                          {checked ? <Check className="h-4 w-4" /> : activeStage.checklist.indexOf(item) + 1}
+                          {checked ? (
+                            <Check className="h-4 w-4" />
+                          ) : (
+                            activeStage.checklist.indexOf(item) + 1
+                          )}
                         </span>
                         <span className={checked ? 'text-white' : 'text-slate-600'}>{item}</span>
                       </button>
@@ -422,7 +461,10 @@ export default function DrawPage() {
 
             <div className="pointer-events-none absolute bottom-8 left-1/2 flex -translate-x-1/2 items-center gap-3 rounded-full border border-slate-200 bg-white px-5 py-3 text-xs font-medium text-slate-500 shadow-[0_25px_70px_-60px_rgba(15,23,42,0.45)]">
               {participants.map((participant) => (
-                <div key={participant.initials} className="pointer-events-auto flex items-center gap-3">
+                <div
+                  key={participant.initials}
+                  className="pointer-events-auto flex items-center gap-3"
+                >
                   <span
                     className={`flex h-9 w-9 items-center justify-center rounded-full border border-white text-[11px] font-semibold shadow ${participant.color}`}
                   >
@@ -438,7 +480,9 @@ export default function DrawPage() {
         <aside className="w-full max-w-md border-l border-slate-200 bg-white">
           <div className="flex items-center justify-between border-b border-slate-200 px-6 py-5">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-400">AI NOTES</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-400">
+                AI NOTES
+              </p>
               <h2 className="mt-1 text-lg font-semibold text-slate-900">Workshop digest</h2>
             </div>
             <Button
@@ -453,7 +497,9 @@ export default function DrawPage() {
 
           <div className="space-y-8 overflow-y-auto px-6 pb-8 pt-6">
             <section className="rounded-3xl border border-slate-200 bg-slate-50/80 p-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-400">Headline</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-400">
+                Headline
+              </p>
               <h3 className="mt-2 text-xl font-semibold text-slate-900">{summary.headline}</h3>
               <p className="mt-3 text-sm leading-relaxed text-slate-500">{summary.summary}</p>
             </section>
@@ -465,7 +511,10 @@ export default function DrawPage() {
               </div>
               <ul className="mt-3 space-y-2">
                 {summary.insights.map((insight) => (
-                  <li key={insight} className="rounded-2xl border border-slate-200 bg-white p-4 text-sm text-slate-600">
+                  <li
+                    key={insight}
+                    className="rounded-2xl border border-slate-200 bg-white p-4 text-sm text-slate-600"
+                  >
                     <div className="flex items-start gap-3">
                       <span className="mt-1 flex h-6 w-6 items-center justify-center rounded-full bg-slate-900/5 text-[11px] font-semibold text-slate-500">
                         <Sparkles className="h-3.5 w-3.5 text-slate-400" />
@@ -508,7 +557,9 @@ export default function DrawPage() {
                           </span>
                           <span className={actioned ? 'text-white' : 'text-slate-600'}>{item}</span>
                         </div>
-                        <span className={`text-xs font-semibold ${actioned ? 'text-white/70' : 'text-slate-400'}`}>
+                        <span
+                          className={`text-xs font-semibold ${actioned ? 'text-white/70' : 'text-slate-400'}`}
+                        >
                           {actioned ? 'Synced' : 'Send'}
                         </span>
                       </button>
@@ -521,10 +572,13 @@ export default function DrawPage() {
             <section className="rounded-3xl border border-slate-200 bg-white p-5">
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-400">Broadcast</p>
+                  <p className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-400">
+                    Broadcast
+                  </p>
                   <h4 className="mt-2 text-sm font-semibold text-slate-700">Push ritual digest</h4>
                   <p className="mt-2 text-xs leading-relaxed text-slate-400">
-                    Ship notes and boards to Notion, Linear and Slack with one click. The share includes recordings and vote data.
+                    Ship notes and boards to Notion, Linear and Slack with one click. The share
+                    includes recordings and vote data.
                   </p>
                 </div>
                 <NotebookPen className="h-10 w-10 text-slate-200" />
