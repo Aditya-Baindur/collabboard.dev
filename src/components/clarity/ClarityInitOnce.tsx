@@ -5,6 +5,13 @@ import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import Clarity from '@microsoft/clarity';
 
+declare global {
+  interface Window {
+    __CLARITY_LOADED__?: boolean;
+    clarity?: (...args: unknown[]) => void;
+  }
+}
+
 type CookiePreferences = {
   essential: boolean;
   analytics: boolean;
@@ -23,19 +30,20 @@ let moduleInited = false;
 let moduleListenerAttached = false;
 
 function hasAnalyticsConsent(): boolean {
+  if (typeof window === 'undefined') return false;
   try {
     const raw = localStorage.getItem('cookie-preferences');
-    if (!raw) return false;
+    if (!raw) return true;
     const prefs = JSON.parse(raw) as CookiePreferences;
-    return !!prefs.analytics;
+    if (typeof prefs.analytics === 'boolean') return prefs.analytics;
+    return true;
   } catch {
-    return false;
+    return true;
   }
 }
 
 function initClarityOnce() {
   // window-level guard (persists across module reloads)
-  // @ts-expect-error: custom flag
   if (typeof window !== 'undefined' && window.__CLARITY_LOADED__) return;
 
   // session guard (once per browser tab session)
@@ -47,7 +55,6 @@ function initClarityOnce() {
   try {
     Clarity.init(CLARITY_ID);
     Clarity.consent(true);
-    // @ts-expect-error: custom flag
     window.__CLARITY_LOADED__ = true;
     sessionStorage.setItem('clarity:loaded', '1');
     moduleInited = true;
@@ -71,11 +78,10 @@ export default function ClarityInitOnce() {
           initClarityOnce();
         } else {
           try {
-            // @ts-expect-error: injected by clarity
             window.clarity?.('consent', false);
+            Clarity.consent(false);
           } catch {}
           // clear guards so if user re-enables later, we can re-init
-          // @ts-expect-error:cuz
           if (typeof window !== 'undefined') window.__CLARITY_LOADED__ = false;
           sessionStorage.removeItem('clarity:loaded');
           moduleInited = false;
@@ -90,7 +96,6 @@ export default function ClarityInitOnce() {
   // 3) Tag SPA route changes (only if we already initialized)
   useEffect(() => {
     // guard both paths: module + window flag
-    // @ts-expect-error:cuz
     const loaded = moduleInited || (typeof window !== 'undefined' && !!window.__CLARITY_LOADED__);
     if (!loaded) return;
 
