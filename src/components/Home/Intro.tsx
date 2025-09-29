@@ -95,7 +95,12 @@ export default function Hero() {
     }
 
     return (
-      <a key={`${item.label}-${index}`} href={item.href} className={commonClass} onClick={closeMenu}>
+      <a
+        key={`${item.label}-${index}`}
+        href={item.href}
+        className={commonClass}
+        onClick={closeMenu}
+      >
         {item.label}
       </a>
     );
@@ -106,8 +111,7 @@ export default function Hero() {
       <div
         className="absolute inset-0"
         style={{
-          background:
-            'radial-gradient(circle at top, rgba(79,155,255,0.12), transparent 55%)',
+          background: 'radial-gradient(circle at top, rgba(79,155,255,0.12), transparent 55%)',
         }}
         aria-hidden
       />
@@ -132,10 +136,11 @@ export default function Hero() {
       <header className="relative mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-6 sm:py-8 lg:px-12">
         <Link
           href="/"
-          className="flex items-center gap-3 rounded-full bg-white/70 px-4 py-2 text-sm font-medium text-slate-600 shadow-sm backdrop-blur"
+          className="flex items-center gap-3 px-4 py-2 text-sm font-medium text-slate-600"
         >
           <BrandLogo />
         </Link>
+
         <nav className="hidden items-center gap-8 text-sm text-slate-700 md:flex">
           {navigation.map((item, index) => renderNavItem(item, index))}
         </nav>
@@ -151,7 +156,12 @@ export default function Hero() {
           <SignedIn>
             <UserButton />
           </SignedIn>
-          <Button className="bg-slate-900 text-white shadow-[0_20px_45px_-20px_rgba(15,23,42,0.55)] hover:bg-slate-800">
+          <Button
+            className="bg-slate-900 text-white shadow-[0_20px_45px_-20px_rgba(15,23,42,0.55)] hover:bg-slate-800"
+            onClick={() => {
+              document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
             Join the beta
           </Button>
         </div>
@@ -190,14 +200,12 @@ export default function Hero() {
               </div>
             </SignedIn>
             <Button
-              className="w-full border border-slate-200 bg-white text-slate-900 shadow-none hover:bg-[var(--color-logo-mint)]/40"
-              variant="outline"
+              className="bg-slate-900 text-white shadow-[0_20px_45px_-20px_rgba(15,23,42,0.55)] hover:bg-slate-800"
               onClick={() => {
-                closeMenu();
-                router.push('/draw');
+                document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' });
               }}
             >
-              Launch whiteboard
+              Join the beta
             </Button>
           </div>
         </div>
@@ -218,7 +226,8 @@ export default function Hero() {
               ritual into one calm, elegant workspace.
             </h1>
             <p className="max-w-xl text-lg text-slate-600">
-              colabboard keeps your workshops flowing — from structured Excalidraw canvases to AI summaries that land in your tools moments after you wrap.
+              colabboard keeps your workshops flowing — from structured Excalidraw canvases to AI
+              summaries that land in your tools moments after you wrap.
             </p>
           </div>
 
@@ -239,7 +248,11 @@ export default function Hero() {
               className="group inline-flex items-center gap-2 border-slate-200 bg-white text-slate-700 transition hover:bg-[var(--color-logo-mint)]/40"
               asChild
             >
-              <a href="https://www.youtube.com/results?search_query=colabboard" target="_blank" rel="noreferrer">
+              <a
+                href="https://www.youtube.com/results?search_query=colabboard"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <PlayCircle className="h-4 w-4 text-[var(--color-logo-purple)] transition group-hover:text-slate-700" />
                 Watch 90s demo <MoveUpRight className="h-4 w-4" />
               </a>
@@ -277,7 +290,9 @@ export default function Hero() {
                   <span className="text-xs font-medium uppercase tracking-[0.26em] text-slate-500">
                     Workshop canvas
                   </span>
-                  <span className="text-xs font-semibold text-[var(--color-logo-purple)]">Live</span>
+                  <span className="text-xs font-semibold text-[var(--color-logo-purple)]">
+                    Live
+                  </span>
                 </div>
                 <div className="mt-4 grid gap-3 text-sm text-slate-600">
                   <div className="rounded-2xl border border-slate-200/80 bg-white/90 p-3 shadow-sm">
@@ -286,7 +301,9 @@ export default function Hero() {
                       <span>02:30 timer</span>
                     </div>
                     <p className="mt-2 text-base font-semibold text-slate-800">Ideation prompts</p>
-                    <p className="text-sm text-slate-500">“Where can we remove friction for new teams?”</p>
+                    <p className="text-sm text-slate-500">
+                      “Where can we remove friction for new teams?”
+                    </p>
                   </div>
                   <div className="rounded-2xl border border-slate-200/80 bg-white/90 p-3 shadow-sm">
                     <div className="flex items-center gap-3">
@@ -295,7 +312,9 @@ export default function Hero() {
                       </span>
                       <div className="text-sm">
                         <div className="font-semibold text-slate-700">Eva added 4 stickies</div>
-                        <div className="text-xs text-slate-400">“Unclear onboarding emails” highlighted</div>
+                        <div className="text-xs text-slate-400">
+                          “Unclear onboarding emails” highlighted
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -318,7 +337,10 @@ export default function Hero() {
               >
                 <span
                   className="inline-flex items-center rounded-full px-3 py-1 text-[11px] font-medium"
-                  style={{ backgroundColor: artifact.accentBackground, color: artifact.accentColor }}
+                  style={{
+                    backgroundColor: artifact.accentBackground,
+                    color: artifact.accentColor,
+                  }}
                 >
                   {artifact.subtitle}
                 </span>
