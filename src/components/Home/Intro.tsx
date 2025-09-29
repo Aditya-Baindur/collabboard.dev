@@ -1,18 +1,8 @@
 'use client';
 
 import type { CSSProperties } from 'react';
-import {
-  ArrowRight,
-  LoaderCircle,
-  Menu,
-  MoveUpRight,
-  PlayCircle,
-  Sparkles,
-  Wand2,
-  X,
-} from 'lucide-react';
+import { ArrowRight, Menu, MoveUpRight, PlayCircle, Sparkles, Wand2, X } from 'lucide-react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 import { SignInButton, SignUpButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
@@ -71,7 +61,6 @@ const heroArtifacts: HeroArtifact[] = [
 ];
 
 export default function Hero() {
-  const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
 
   const closeMenu = () => setMenuOpen(false);
