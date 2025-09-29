@@ -17,12 +17,7 @@ const links = [
   },
   {
     title: 'Company',
-    items: [
-      { label: 'About', href: 'https://www.collabboard.dev' },
-      { label: 'Careers', href: 'https://www.collabboard.dev#careers' },
-      { label: 'Press', href: 'https://www.collabboard.dev#press' },
-      { label: 'Contact', href: contactEmail },
-    ],
+    items: [{ label: 'Contact', href: contactEmail }],
   },
   {
     title: 'Resources',
@@ -45,6 +40,13 @@ export default function Footer() {
             <p className="text-sm leading-relaxed text-slate-500">
               Run high-impact workshops, retros and rituals with live Excalidraw frames,
               facilitation tools and AI-driven follow-ups.
+            </p>
+            <p>
+              Email us at{' '}
+              <Link href={contactEmail} className="bg-logo-mint rounded-xl px-3 py-1">
+                {' '}
+                hello@colabboard.dev{' '}
+              </Link>
             </p>
             <div className="text-xs text-slate-400">
               © {new Date().getFullYear()} Colabboard. All rights reserved.
