@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import Link from 'next/link';
+import { ArrowRight, Mail, Sparkles } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 
@@ -11,6 +12,9 @@ const celebratoryMessages = [
   'Invite your team and make meetings feel magical 🌈',
 ];
 
+const contactEmail =
+  'mailto:hello@collabboard.dev?subject=Let%E2%80%99s%20talk%20colabboard&body=Hi%20Colabboard%20team%2C%0A%0AI%27d%20love%20to%20learn%20more%20about%20how%20you%20can%20help%20our%20workshops.%0A%0AThanks%2C%0A';
+
 export default function CTA() {
   const [messageIndex, setMessageIndex] = useState(0);
 
@@ -19,13 +23,12 @@ export default function CTA() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-white py-24">
-      <div
-        className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(79,155,255,0.12),_transparent_60%)]"
-        aria-hidden
-      />
+    <section className="relative overflow-hidden bg-gradient-to-b from-white via-[var(--color-company-bg)]/75 to-white py-24">
+      <div className="absolute inset-0" style={{
+        background: 'radial-gradient(circle at center, rgba(79,155,255,0.12), transparent 60%)',
+      }} aria-hidden />
       <div className="relative mx-auto flex max-w-5xl flex-col items-center gap-8 px-6 text-center lg:px-12">
-        <span className="inline-flex items-center gap-2 rounded-full bg-slate-900/5 px-4 py-2 text-xs uppercase tracking-[0.3em] text-slate-600">
+        <span className="inline-flex items-center gap-2 rounded-full bg-white/80 px-4 py-2 text-xs uppercase tracking-[0.3em] text-slate-600 shadow-sm">
           <Sparkles className="h-3.5 w-3.5 text-slate-400" />
           Start co-creating today
         </span>
@@ -46,12 +49,15 @@ export default function CTA() {
           </Button>
           <Button
             variant="outline"
-            className="border-slate-200 bg-white text-slate-700 hover:bg-slate-50"
+            className="border-white/70 bg-white text-slate-700 hover:bg-[var(--color-company-bg)]"
+            asChild
           >
-            Talk to our team
+            <Link href={contactEmail}>
+              <Mail className="h-4 w-4 text-[var(--color-logo-blue)]" /> Talk to our team
+            </Link>
           </Button>
         </div>
-        <p className="rounded-full border border-slate-200 bg-white px-5 py-2 text-sm font-medium text-slate-600 shadow-sm transition">
+        <p className="rounded-full border border-white/70 bg-white/90 px-5 py-2 text-sm font-medium text-slate-600 shadow-sm transition">
           {celebratoryMessages[messageIndex]}
         </p>
       </div>

@@ -29,10 +29,10 @@ const plans = [
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="bg-slate-50 py-24">
+    <section id="pricing" className="bg-gradient-to-b from-white via-[var(--color-company-bg)]/70 to-white py-24">
       <div className="mx-auto max-w-6xl px-6 lg:px-12">
         <div className="flex flex-col gap-6 text-center">
-          <p className="mx-auto inline-flex items-center rounded-full bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">
+          <p className="mx-auto inline-flex items-center rounded-full bg-white/80 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-slate-600 shadow-sm">
             Simple pricing, transparent value
           </p>
           <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
@@ -48,11 +48,13 @@ export default function Pricing() {
             <Card
               key={plan.name}
               className={`relative overflow-hidden rounded-[28px] border ${
-                plan.highlighted ? 'border-slate-900 bg-white shadow-[0_55px_120px_-70px_rgba(15,23,42,0.55)]' : 'border-slate-200 bg-white'
+                plan.highlighted
+                  ? 'border-[var(--color-logo-purple)]/60 bg-white/95 shadow-[0_55px_120px_-70px_rgba(138,107,255,0.45)]'
+                  : 'border-white/70 bg-white/90 shadow-[0_40px_90px_-65px_rgba(79,155,255,0.25)]'
               }`}
             >
               {plan.highlighted ? (
-                <div className="absolute right-6 top-6 inline-flex items-center rounded-full bg-slate-900 px-3 py-1 text-[11px] font-medium text-white">
+                <div className="absolute right-6 top-6 inline-flex items-center rounded-full bg-[var(--color-logo-purple)] px-3 py-1 text-[11px] font-medium text-white shadow-sm">
                   Most loved
                 </div>
               ) : null}
@@ -80,8 +82,8 @@ export default function Pricing() {
                 <Button
                   className={`w-full ${
                     plan.highlighted
-                      ? 'bg-slate-900 text-white hover:bg-slate-800'
-                      : 'border border-slate-200 bg-white text-slate-800 hover:bg-slate-50'
+                      ? 'bg-[var(--color-logo-purple)] text-white shadow-[0_35px_90px_-55px_rgba(138,107,255,0.8)] hover:bg-[var(--color-logo-blue)]'
+                      : 'border border-white/70 bg-white text-slate-800 hover:bg-[var(--color-company-bg)]'
                   }`}
                   variant={plan.highlighted ? 'default' : 'outline'}
                 >
