@@ -1,12 +1,12 @@
 import { type Metadata } from 'next';
 import { ClerkProvider } from '@clerk/nextjs';
 import Script from 'next/script';
-
 import { Analytics } from '@vercel/analytics/next';
-
-import { Plus_Jakarta_Sans } from 'next/font/google';
-import './globals.css';
 import { Toaster } from '@/components/ui/sonner';
+import { Plus_Jakarta_Sans } from 'next/font/google';
+import ClarityInitOnce from '@/components/clarity/clarityinit';
+
+import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Colabboard',
@@ -27,6 +27,7 @@ export default function RootLayout({
           className={`${plusJakarta.variable} antialiased bg-white text-slate-900 selection:bg-logo-mint`}
         >
           {children}
+          <ClarityInitOnce />
           <Toaster richColors position="top-center" />
           <Analytics />
         </body>
