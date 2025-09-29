@@ -30,10 +30,13 @@ const features = [
 
 export default function FeatureHighlights() {
   return (
-    <section id="features" className="bg-white py-24">
+    <section
+      id="features"
+      className="bg-gradient-to-b from-[var(--color-company-bg)] via-white to-white py-24"
+    >
       <div className="mx-auto flex max-w-6xl flex-col gap-14 px-6 lg:flex-row lg:items-start lg:gap-20 lg:px-12">
         <div className="max-w-xl space-y-6">
-          <p className="inline-flex items-center rounded-full bg-slate-900/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-slate-600">
+          <p className="inline-flex items-center rounded-full bg-white/70 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-slate-600 shadow-sm">
             Built for facilitators
           </p>
           <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
@@ -49,13 +52,17 @@ export default function FeatureHighlights() {
           {features.map((feature) => (
             <div
               key={feature.title}
-              className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 shadow-[0_45px_90px_-70px_rgba(15,23,42,0.6)] transition hover:-translate-y-1"
+              className="group relative overflow-hidden rounded-3xl border border-white/70 bg-white/90 p-6 shadow-[0_45px_90px_-70px_rgba(79,155,255,0.45)] backdrop-blur transition hover:-translate-y-1 hover:shadow-[0_55px_120px_-70px_rgba(138,107,255,0.45)]"
             >
               <div
-                className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-gradient-to-br from-slate-100 via-white to-transparent"
+                className="absolute -right-10 -top-10 h-28 w-28 rounded-full"
+                style={{
+                  background:
+                    'linear-gradient(135deg, rgba(79,155,255,0.18), rgba(96,246,195,0.18))',
+                }}
                 aria-hidden
               />
-              <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-900/5 text-slate-700">
+              <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--color-logo-blue)]/15 text-[var(--color-logo-blue)]">
                 <feature.icon className="h-6 w-6" />
               </div>
               <h3 className="text-xl font-semibold text-slate-900">{feature.title}</h3>
