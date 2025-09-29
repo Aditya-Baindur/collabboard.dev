@@ -24,9 +24,13 @@ export default function CTA() {
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-white via-[var(--color-company-bg)]/75 to-white py-24">
-      <div className="absolute inset-0" style={{
-        background: 'radial-gradient(circle at center, rgba(79,155,255,0.12), transparent 60%)',
-      }} aria-hidden />
+      <div
+        className="absolute inset-0"
+        style={{
+          background: 'radial-gradient(circle at center, rgba(79,155,255,0.12), transparent 60%)',
+        }}
+        aria-hidden
+      />
       <div className="relative mx-auto flex max-w-5xl flex-col items-center gap-8 px-6 text-center lg:px-12">
         <span className="inline-flex items-center gap-2 rounded-full bg-white/80 px-4 py-2 text-xs uppercase tracking-[0.3em] text-slate-600 shadow-sm">
           <Sparkles className="h-3.5 w-3.5 text-slate-400" />
