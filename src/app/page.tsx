@@ -8,6 +8,7 @@ import LibraryShowcase from '@/components/Home/LibraryShowcase';
 import Pricing from '@/components/Home/Pricing';
 import Testimonials from '@/components/Home/Testimonials';
 import About from '@/components/Home/About';
+import TwitterHighlights from '@/components/Home/TwitterHighlights';
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <EmailSignup />
       <LibraryShowcase />
       <Testimonials />
+      <TwitterHighlights />
       <Pricing />
       <FAQ />
       <About />
