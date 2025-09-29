@@ -1,9 +1,5 @@
-import React from 'react';
+export default async function GetEmail() {
+  const res = await fetch('/api/users');
 
-export default function page() {
-  return (
-    <div className="flex flex-auto justify-center items-center h-screen">
-      <h1 className="text-3xl">Admin Console</h1>
-    </div>
-  );
+  return;
 }
