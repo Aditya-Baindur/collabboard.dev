@@ -54,9 +54,16 @@ export default function About() {
               </Link>
               <Link
                 href="https://x.com/collabboard_dev"
-                className="inline-flex items-center justify-center rounded-full bg-[var(--color-logo-purple)] px-5 py-2 text-white transition hover:bg-[var(--color-logo-purple)]/90"
+                className="inline-flex items-center justify-center rounded-full bg-logo-blue px-5 py-2 text-white transition hover:bg-[var(--color-logo-purple)]/90"
               >
                 Follow us on X
+              </Link>
+
+              <Link
+                href="https://www.reddit.com/user/Past_Programmer1570/"
+                className="inline-flex items-center justify-center rounded-full bg-logo-blue px-5 py-2 text-white transition hover:bg-[var(--color-logo-purple)]/90 mx-3"
+              >
+                Follow us on Reddit
               </Link>
             </div>
           </div>

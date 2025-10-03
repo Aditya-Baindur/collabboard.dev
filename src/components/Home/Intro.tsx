@@ -229,14 +229,14 @@ export default function Hero() {
               className="group inline-flex items-center gap-2 border-slate-200 bg-white text-slate-700 transition hover:bg-[var(--color-logo-mint)]/40"
               asChild
             >
-              <a
+              {/* <a
                 href="https://www.youtube.com/results?search_query=colabboard"
                 target="_blank"
                 rel="noreferrer"
               >
                 <PlayCircle className="h-4 w-4 text-[var(--color-logo-purple)] transition group-hover:text-slate-700" />
                 Watch 90s demo <MoveUpRight className="h-4 w-4" />
-              </a>
+              </a> */}
             </Button>
           </div>
 

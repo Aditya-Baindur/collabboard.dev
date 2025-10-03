@@ -46,7 +46,9 @@ export default function CTA() {
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
           <Button
             className="group flex items-center gap-2 bg-slate-900 text-white shadow-[0_40px_120px_-70px_rgba(15,23,42,0.6)] hover:bg-slate-800"
-            onClick={onCelebrate}
+            onClick={() => {
+              document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' });
+            }}
           >
             Claim your workspace
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

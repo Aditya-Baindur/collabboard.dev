@@ -12,7 +12,6 @@ const links = [
       { label: 'Features', href: '#features' },
       { label: 'Pricing', href: '#pricing' },
       { label: 'Templates', href: '#library' },
-      { label: 'Changelog', href: '/def' },
     ],
   },
   {
@@ -21,12 +20,7 @@ const links = [
   },
   {
     title: 'Resources',
-    items: [
-      { label: 'Help center', href: '/def' },
-      { label: 'Facilitation hub', href: 'https://www.collabboard.dev#resources' },
-      { label: 'Community', href: 'https://www.collabboard.dev#community' },
-      { label: 'Status', href: 'https://status.collabboard.dev' },
-    ],
+    items: [{ label: 'Help center', href: 'https://collabboard.canny.io/feature-requests' }],
   },
 ];
 

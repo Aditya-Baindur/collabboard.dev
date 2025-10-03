@@ -1,3 +1,4 @@
+'use client';
 import { Check } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
@@ -6,30 +7,39 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 const plans = [
   {
     name: 'Facilitator',
-    price: '$24',
+    price: '$0',
     cadence: 'per facilitator / month',
     description: 'Run high-energy workshops with timers, rituals and AI summaries included.',
-    features: ['Unlimited Excalidraw boards', 'Timer, poll & voting rituals', 'AI notes + action items', 'Template gallery access'],
-    highlighted: false
+    features: [
+      'Unlimited Excalidraw boards',
+      'Timer, poll & voting rituals',
+      'AI notes + action items',
+      'Template gallery access',
+    ],
+    highlighted: false,
   },
   {
     name: 'Workspace',
-    price: '$64',
+    price: '$29.99',
     cadence: 'per workspace / month',
-    description: 'Scale facilitation across product orgs with automations, governance and insights.',
+    description:
+      'Scale facilitation across product orgs with automations, governance and insights.',
     features: [
       'Shared template library & branding',
       '50 simultaneous cursors',
       'Automations & integrations',
-      'Advanced reporting & exports'
+      'Advanced reporting & exports',
     ],
-    highlighted: true
-  }
+    highlighted: true,
+  },
 ];
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="bg-gradient-to-b from-white via-[var(--color-company-bg)]/70 to-white py-24">
+    <section
+      id="pricing"
+      className="bg-gradient-to-b from-white via-[var(--color-company-bg)]/70 to-white py-24"
+    >
       <div className="mx-auto max-w-6xl px-6 lg:px-12">
         <div className="flex flex-col gap-6 text-center">
           <p className="mx-auto inline-flex items-center rounded-full bg-white/80 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-slate-600 shadow-sm">
@@ -39,7 +49,8 @@ export default function Pricing() {
             Start for free, scale when the whole team is ready.
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-slate-600">
-            Every plan includes unlimited guests. Upgrade when you need deeper automation, security controls or advanced analytics.
+            Every plan includes unlimited guests. Upgrade when you need deeper automation, security
+            controls or advanced analytics.
           </p>
         </div>
 
@@ -60,8 +71,12 @@ export default function Pricing() {
               ) : null}
               <CardHeader className="space-y-6">
                 <div className="space-y-2 text-left">
-                  <CardTitle className="text-2xl font-semibold text-slate-900">{plan.name}</CardTitle>
-                  <CardDescription className="text-base text-slate-600">{plan.description}</CardDescription>
+                  <CardTitle className="text-2xl font-semibold text-slate-900">
+                    {plan.name}
+                  </CardTitle>
+                  <CardDescription className="text-base text-slate-600">
+                    {plan.description}
+                  </CardDescription>
                 </div>
                 <div className="flex items-baseline gap-2 text-slate-900">
                   <span className="text-4xl font-semibold">{plan.price}</span>
@@ -86,6 +101,9 @@ export default function Pricing() {
                       : 'border border-white/70 bg-white text-slate-800 hover:bg-[var(--color-company-bg)]'
                   }`}
                   variant={plan.highlighted ? 'default' : 'outline'}
+                  onClick={() => {
+                    document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
                 >
                   {plan.highlighted ? 'Upgrade workspace' : 'Start free'}
                 </Button>
