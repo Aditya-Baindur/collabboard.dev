@@ -1,4 +1,10 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## You can see the live version of this project at : [collabboard.dev](https://collabboard.dev/)
+
+This project is part of my ADM 3313 Class for the Fall Semester of 2025.
+
+I chose to make a collaboaration software to help people work together with no sign-ups!
+
+If you want to learn more, please contact me at : [help@collabboard.dev](mailto:hello@collabboard.dev?subject=Hello%20Colabboard%20team&body=Hi%20Colabboard%20team%2C%0A%0AWe%27d%20love%20to%20learn%20more%20about%20colabboard.%0A%0ABest%2C%0A)
 
 ## Getting Started
 
@@ -6,19 +12,9 @@ First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
 ## Learn More
 
